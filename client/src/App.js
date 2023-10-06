@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const api = {
-  key: "2983bd3b52b446b8a24e7adde78a747d",
+  key: `${process.env.REACT_APP_API_KEY}`,
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
