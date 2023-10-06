@@ -1,7 +1,6 @@
 import './App.css';
 
 import React from 'react';
-import axios from 'axios';
 import { useState } from 'react';
 
 const api = {
@@ -24,7 +23,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1>GYATTT</h1> 
+      <h1>Weather App</h1> 
       <div className='input-box'>
         <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)}/>
         <button onClick={searchPressed}>Search</button>
