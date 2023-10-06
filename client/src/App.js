@@ -13,7 +13,11 @@ function App() {
 
   const [search, setSearch] = useState("");
   const searchPressed = () => {
-    console.log("ok!")
+    fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`)
+      .then(res => res.json())
+      .then((result) => {
+        console.log(result);
+      });
   };
   
   return (
