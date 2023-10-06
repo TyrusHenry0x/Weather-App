@@ -12,21 +12,35 @@ const api = {
 function App() {
 
   const [search, setSearch] = useState("");
+  const [weather, setWeather] = useState({});
+
   const searchPressed = () => {
     fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`)
       .then(res => res.json())
       .then((result) => {
-        console.log(result);
+        setWeather(result);
       });
   };
   
   return (
     <div className="App">
       <h1>GYATTT</h1> 
-      <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)}/>
-      <button onClick={searchPressed}>Search</button>
+      <div className='input-box'>
+        <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)}/>
+        <button onClick={searchPressed}>Search</button>
+      </div>
+
+      {/* result container held by terinary operator(preventing undefined error) */}
+      {typeof weather.main !== "undefined" ? (
+      <div className='result-container'>
+        <p>{weather.name}</p>
+        <p>{weather.main.temp}</p>
+        <p>{weather.weather[0].main}</p>
+        <p>({weather.weather[0].description})</p>
+      </div>
+      ) : ("")}
     </div>
-  );
-}
+  )
+};
 
 export default App;
