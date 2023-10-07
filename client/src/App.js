@@ -2,6 +2,7 @@ import './App.css';
 
 import React from 'react';
 import { useState } from 'react';
+import Search from './components/Search/Search';
 
 const api = {
   key: `${process.env.REACT_APP_API_KEY}`,
@@ -20,7 +21,6 @@ function App() {
         setWeather(result);
       });
   };
-  
   return (
     <div className="App">
       <h1>Weather App</h1> 
@@ -28,6 +28,7 @@ function App() {
         <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)}/>
         <button onClick={searchPressed}>Search</button>
       </div>
+      {/* <Search/> */}
 
       {/* result container held by terinary operator(preventing undefined error) */}
       {typeof weather.main !== "undefined" ? (
