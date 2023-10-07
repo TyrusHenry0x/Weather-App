@@ -14,7 +14,7 @@ function App() {
   const [weather, setWeather] = useState({});
 
   const searchPressed = () => {
-    fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`)
+    fetch(`${api.base}weather?q=${search}&units=imperial&APPID=${api.key}`)
       .then(res => res.json())
       .then((result) => {
         setWeather(result);
@@ -35,7 +35,7 @@ function App() {
         <p>{weather.name}</p>
         <p>{weather.main.temp}</p>
         <p>{weather.weather[0].main}</p>
-        <p>({weather.weather[0].description})</p>
+        <p>({weather.weather[0].description})</p>  
       </div>
       ) : ("")}
     </div>
