@@ -2,7 +2,8 @@ import './App.css';
 
 import React from 'react';
 import { useState } from 'react';
-import Search from './components/Search/Search';
+// import Search from './components/Search/Search';
+// import Home from './components/Home/Home';
 
 const api = {
   key: `${process.env.REACT_APP_API_KEY}`,
@@ -21,25 +22,27 @@ function App() {
         setWeather(result);
       });
   };
+
   return (
     <div className="App">
-      <h1>Weather App</h1> 
+      <h1>Weather App</h1>
       <div className='input-box'>
         <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)}/>
         <button onClick={searchPressed}>Search</button>
       </div>
-      {/* <Search/> */}
 
       {/* result container held by terinary operator(preventing undefined error) */}
       {typeof weather.main !== "undefined" ? (
-      <div className='result-container'>
+        <div className='result-container'>
         <p>{weather.name}</p>
         <p>{weather.main.temp}</p>
         <p>{weather.weather[0].main}</p>
-        <p>({weather.weather[0].description})</p>  
+        <p>({weather.weather[0].description})</p>
       </div>
       ) : ("")}
     </div>
+    // <Home/>
+    // <Search/>
   )
 };
 
