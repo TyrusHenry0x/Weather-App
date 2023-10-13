@@ -1,3 +1,4 @@
+import { Container } from '@mui/material';
 import './App.css';
 
 import React from 'react';
@@ -28,7 +29,7 @@ function App() {
       <h1>Weather App</h1>
       <div className='input-box'>
         <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)}/>
-        <button onClick={searchPressed}>Search</button>
+        <button className='search-button' onClick={searchPressed}>Search</button>
       </div>
 
       {/* result container held by terinary operator(preventing undefined error) */}
