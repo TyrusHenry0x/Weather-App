@@ -47,7 +47,7 @@ body {
 .search-bar {
   padding: 10px;
   border-radius: 3px 0 0 3px;
-  border: 0; 
+  border: 0;
   outline: none;
   height: 20px;
   margin: auto 0;
@@ -70,9 +70,30 @@ body {
 }
 
 .current-weather {
+  display: grid;
   width: 100%;
   text-align: center;
   background-color: orange;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.weather-num {
+  grid-area: 1 / 1 / 4 / 3;
+}
+
+.feels-like {
+  grid-area: 1 / 1 / 4 / 2;
+}
+
+.high {
+  grid-area: 1 / 2 / 3;
+}
+
+.low {
+  grid-area: 2 / 2 ; 
 }
 
 .forecast-container {
