@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import SearchIcon from './components/Icons/searchicon';
+
 
 const api = {
   key: process.env.REACT_APP_API_KEY,
@@ -47,23 +47,23 @@ function App() {
           <div className='result-container'>
             <div className='current-weather'>
               <div className='weather-num'>
-                <p>{forecast.list[0].main.temp}&deg;F</p>
-              </div>
+                <p>{Math.floor(forecast.list[0].main.temp)}&deg;F</p>
+                </div>
               <div className='feels-like'>
                 <p>Feels Like: {forecast.list[0].main.feels_like}&deg;F</p>
               </div>
               <div className='high'>
-                <p>High: {forecast.list[0].main.temp_max}&deg;F</p>
+                <p>High: {Math.floor(forecast.list[0].main.temp_max)}&deg;F</p>
               </div>
               <div className='low'>
-                <p>Low: {forecast.list[0].main.temp_min}&deg;F</p>
+                <p>Low: {Math.floor(forecast.list[0].main.temp_min)}&deg;F</p>
               </div>
             </div>
             <div className='forecast-container'>
               {forecast.list.map(item => (
                 <div key={item.dt} className='forecast-items'>
                   <p>{new Date(item.dt * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}</p>
-                  <p>{item.main.temp}</p>
+                  <p>{Math.floor(item.main.temp)}&deg;F</p>
                   <p>{item.weather[0].main}</p>
                   {/* <p>({item.weather[0].description})</p> */}
                 </div>
